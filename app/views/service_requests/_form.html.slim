@@ -1,0 +1,31 @@
+= form_for @service_request do |f|
+  - if @service_request.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@service_request.errors.count, "error")} prohibited this service_request from being saved:"
+      ul
+        - @service_request.errors.full_messages.each do |message|
+          li = message
+  .requester
+    p Requester
+    = f.fields_for :requester do |requester_form|
+      = render partial: "shared/nested_member_form", locals: {member_form: requester_form}
+  .receiver
+    p Receiver
+    = f.fields_for :receiver do |receiver_form|
+      = render partial: "shared/nested_member_form", locals: {member_form: receiver_form}
+  .field
+    = f.label :service_needed
+    = f.text_field :service_needed
+  .field
+    = f.label :service_address
+    = f.text_field :service_address
+  .field
+    = f.label :date1
+    = f.date_select :date1
+  .field
+    = f.label :date2
+    = f.date_select :date2
+  .field
+    = f.label :comments
+    = f.text_area :comments
+  .actions = f.submit

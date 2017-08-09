@@ -1,0 +1,14 @@
+= form_for @server do |f|
+  - if @server.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@server.errors.count, "error")} prohibited this server from being saved:"
+      ul
+        - @server.errors.full_messages.each do |message|
+          li = message
+
+  = form.fields_for :member do |member_form|
+    = render partial: "shared/nested_member_form", locals: {member_form: member_form}
+  .field
+    = f.label :service
+    = f.text_field :service
+  .actions = f.submit

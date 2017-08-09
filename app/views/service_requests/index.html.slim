@@ -1,0 +1,37 @@
+h1 Listing service_requests
+
+table
+  thead
+    tr
+      th Requester first name
+      th Requester last name
+      th Receiver first name
+      th Receiver last name
+      th User
+      th Service needed
+      th Comments
+      th Date1
+      th Date2
+      th
+      th
+      th
+
+  tbody
+    - @service_requests.each do |service_request|
+      tr
+        td = service_request.requester_first_name
+        td = service_request.requester_last_name
+        td = service_request.receiver_first_name
+        td = service_request.receiver_last_name
+        td = service_request.user
+        td = service_request.service_needed
+        td = service_request.comments
+        td = service_request.date1
+        td = service_request.date2
+        td = link_to 'Show', service_request
+        td = link_to 'Edit', edit_service_request_path(service_request)
+        td = link_to 'Destroy', service_request, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Service request', new_service_request_path

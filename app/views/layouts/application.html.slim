@@ -1,8 +1,7 @@
 html
   head
     title Calledtoservice
-      = csrf_meta_tags 
-
+    = csrf_meta_tags 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
@@ -11,4 +10,19 @@ html
       = notice
     p.alert
       = alert
-    = yield
+    .header
+      h1 Called to service
+      - if current_user
+        .current_user
+          = current_user.member.first_name + " " + current_user.member.last_name
+        = link_to "Logout", destroy_user_session_path, method: :delete
+      - else
+        = link_to "Login", new_user_session_path, method: :get
+    .body 
+      = yield
+    
+javascript:
+  var context = {};
+  $(function() {
+    Twine.reset(context).bind().refresh();
+  });

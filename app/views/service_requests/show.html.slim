@@ -1,0 +1,33 @@
+p#notice = notice
+
+p
+  strong Requester first name:
+  = @service_request.requester_first_name
+p
+  strong Requester last name:
+  = @service_request.requester_last_name
+p
+  strong Receiver first name:
+  = @service_request.receiver_first_name
+p
+  strong Receiver last name:
+  = @service_request.receiver_last_name
+p
+  strong User:
+  = @service_request.user
+p
+  strong Service needed:
+  = @service_request.service_needed
+p
+  strong Comments:
+  = @service_request.comments
+p
+  strong Date1:
+  = @service_request.date1
+p
+  strong Date2:
+  = @service_request.date2
+
+= link_to 'Edit', edit_service_request_path(@service_request)
+'  |
+= link_to 'Back', service_requests_path

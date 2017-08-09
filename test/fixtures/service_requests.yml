@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  requester_first_name: MyString
+  requester_last_name: MyString
+  receiver_first_name: MyString
+  receiver_last_name: MyString
+  user: one
+  service_needed: MyString
+  comments: MyText
+  date1: 2017-08-08
+  date2: 2017-08-08
+
+two:
+  requester_first_name: MyString
+  requester_last_name: MyString
+  receiver_first_name: MyString
+  receiver_last_name: MyString
+  user: two
+  service_needed: MyString
+  comments: MyText
+  date1: 2017-08-08
+  date2: 2017-08-08

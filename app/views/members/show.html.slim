@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong First name:
+  = @member.first_name
+p
+  strong Last name:
+  = @member.last_name
+p
+  strong Phone number:
+  = @member.phone_number
+p
+  strong Service:
+  = @member.service
+
+= link_to 'Edit', edit_member_path(@member)
+'  |
+= link_to 'Back', members_path

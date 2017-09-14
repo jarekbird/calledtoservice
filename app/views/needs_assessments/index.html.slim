@@ -1,0 +1,29 @@
+h1 Listing needs_assessments
+
+table
+  thead
+    tr
+      th User
+      th Relationship
+      th Is known
+      th Needs
+      th Time frame
+      th
+      th
+      th
+
+  tbody
+    - @needs_assessments.each do |needs_assessment|
+      tr
+        td = needs_assessment.user
+        td = needs_assessment.relationship
+        td = needs_assessment.is_known
+        td = needs_assessment.needs
+        td = needs_assessment.time_frame
+        td = link_to 'Show', needs_assessment
+        td = link_to 'Edit', edit_needs_assessment_path(needs_assessment)
+        td = link_to 'Destroy', needs_assessment, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Needs assessment', new_needs_assessment_path

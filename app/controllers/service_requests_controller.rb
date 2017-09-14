@@ -16,6 +16,7 @@ class ServiceRequestsController < ApplicationController
     @service_request = ServiceRequest.new
     @service_request.requester = Member.new
     @service_request.receiver = Member.new
+    @members = Member.all
   end
 
   # GET /service_requests/1/edit

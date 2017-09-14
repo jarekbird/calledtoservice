@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  relationship: MyString
+  is_known: false
+  needs: MyText
+  time_frame: MyString
+
+two:
+  user: two
+  relationship: MyString
+  is_known: false
+  needs: MyText
+  time_frame: MyString

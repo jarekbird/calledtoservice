@@ -1,11 +1,14 @@
 .navigation
-  .nav Home
+  .nav
+    = link_to "Home", root_path
   .nav
     = link_to "Help Serve", new_server_path
   .nav
     = link_to "Request Service", new_service_request_path
-  .nav Needs Assesment
-  .nav Info change
+  .nav 
+    = link_to "Needs Assessment", new_needs_assessment_path
+  .nav
+    = link_to "Info change", new_info_change_path
   - if current_user
     .nav Calendar
     .nav Your requests

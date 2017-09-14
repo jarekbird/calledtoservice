@@ -8,11 +8,11 @@
   .requester
     p Requester
     = f.fields_for :requester do |requester_form|
-      = render partial: "shared/nested_member_form", locals: {member_form: requester_form}
+      = render partial: "shared/nested_member_form", locals: {member_form: requester_form, model_name: "service_request", member_type: "requester"}
   .receiver
     p Receiver
     = f.fields_for :receiver do |receiver_form|
-      = render partial: "shared/nested_member_form", locals: {member_form: receiver_form}
+      = render partial: "shared/nested_member_form", locals: {member_form: receiver_form, model_name: "service_request", member_type: "receiver"}
   .field
     = f.label :service_needed
     = f.text_field :service_needed

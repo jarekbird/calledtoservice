@@ -1,0 +1,22 @@
+= form_for @info_change do |f|
+  - if @info_change.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@info_change.errors.count, "error")} prohibited this info_change from being saved:"
+      ul
+        - @info_change.errors.full_messages.each do |message|
+          li = message
+  .requester
+    p Requester
+    = f.fields_for :requester do |requester_form|
+      = render partial: "shared/nested_member_form", locals: {member_form: requester_form}
+  .receiver
+    p Receiver
+    = f.fields_for :receiver do |receiver_form|
+      = render partial: "shared/nested_member_form", locals: {member_form: receiver_form}
+  .field
+    = f.label :user
+    = f.text_field :user
+  .field
+    = f.label :comments
+    = f.text_area :comments
+  .actions = f.submit

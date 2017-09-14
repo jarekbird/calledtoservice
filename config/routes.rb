@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :info_changes
+  resources :needs_assessments
   resources :servers
   resources :service_requests
   devise_for :users, controllers: {

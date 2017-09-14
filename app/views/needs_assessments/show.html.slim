@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong User:
+  = @needs_assessment.user
+p
+  strong Relationship:
+  = @needs_assessment.relationship
+p
+  strong Is known:
+  = @needs_assessment.is_known
+p
+  strong Needs:
+  = @needs_assessment.needs
+p
+  strong Time frame:
+  = @needs_assessment.time_frame
+
+= link_to 'Edit', edit_needs_assessment_path(@needs_assessment)
+'  |
+= link_to 'Back', needs_assessments_path

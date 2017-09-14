@@ -1,15 +1,9 @@
-.field.first-name-input
-  = member_form.label :first_name
-  = member_form.text_field :first_name
-.field.last-name-input
-  = member_form.label :last_name
-  = member_form.text_field :last_name
-.field.phone-number-input
-  = member_form.label :phone_number
-  = member_form.text_field :phone_number
-.field
-  = member_form.label :address
-  = member_form.text_field :address
-.field.email-input
-  = member_form.label :email
-  = member_form.text_field :email
+member-form define="{MemberForm: new MemberForm(this, #{@members.to_json}, '#{model_name}', '#{member_type}')}"
+  .initial-member-form
+    .field.member-search
+      = text_field_tag 'search', nil, placeholder: 'Search', class: "member-search-input"
+    .member-create Can't Find?
+    .hidden-field.member-id
+      = member_form.hidden_field :id
+  .search-results
+  .creation-member-form

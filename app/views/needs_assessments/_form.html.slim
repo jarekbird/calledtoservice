@@ -1,0 +1,28 @@
+= form_for @needs_assessment do |f|
+  - if @needs_assessment.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@needs_assessment.errors.count, "error")} prohibited this needs_assessment from being saved:"
+      ul
+        - @needs_assessment.errors.full_messages.each do |message|
+          li = message
+
+  .requester
+    p Requester
+    = f.fields_for :requester do |requester_form|
+      = render partial: "shared/nested_member_form", locals: {member_form: requester_form}
+  .receiver
+    p Receiver
+    = f.fields_for :receiver do |receiver_form|
+      = render partial: "shared/nested_member_form", locals: {member_form: receiver_form}
+    = f.label :relationship
+    = f.text_field :relationship
+  .field
+    = f.label :is_known
+    = f.check_box :is_known
+  .field
+    = f.label :needs
+    = f.text_area :needs
+  .field
+    = f.label :time_frame
+    = f.text_field :time_frame
+  .actions = f.submit

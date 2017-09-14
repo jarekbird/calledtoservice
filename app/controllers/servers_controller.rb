@@ -16,6 +16,7 @@ class ServersController < ApplicationController
   def new
     @server = Server.new
     @server.member = Member.new
+    @members = Member.all
   end
 
   # GET /servers/1/edit

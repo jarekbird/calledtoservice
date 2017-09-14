@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170809013705) do
+ActiveRecord::Schema.define(version: 20170812192642) do
+
+  create_table "info_changes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "requester_id"
+    t.bigint "receiver_id"
+    t.bigint "user_id"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_info_changes_on_receiver_id"
+    t.index ["requester_id"], name: "index_info_changes_on_requester_id"
+    t.index ["user_id"], name: "index_info_changes_on_user_id"
+  end
 
   create_table "members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "first_name"
@@ -20,6 +32,21 @@ ActiveRecord::Schema.define(version: 20170809013705) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "needs_assessments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "requester_id"
+    t.bigint "receiver_id"
+    t.bigint "user_id"
+    t.string "relationship"
+    t.boolean "is_known"
+    t.text "needs"
+    t.string "time_frame"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_needs_assessments_on_receiver_id"
+    t.index ["requester_id"], name: "index_needs_assessments_on_requester_id"
+    t.index ["user_id"], name: "index_needs_assessments_on_user_id"
   end
 
   create_table "servers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -66,6 +93,12 @@ ActiveRecord::Schema.define(version: 20170809013705) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "info_changes", "members", column: "receiver_id"
+  add_foreign_key "info_changes", "members", column: "requester_id"
+  add_foreign_key "info_changes", "users"
+  add_foreign_key "needs_assessments", "members", column: "receiver_id"
+  add_foreign_key "needs_assessments", "members", column: "requester_id"
+  add_foreign_key "needs_assessments", "users"
   add_foreign_key "servers", "members"
   add_foreign_key "service_requests", "members", column: "receiver_id"
   add_foreign_key "service_requests", "members", column: "requester_id"

@@ -1,0 +1,23 @@
+h1 Listing info_changes
+
+table
+  thead
+    tr
+      th User
+      th Comments
+      th
+      th
+      th
+
+  tbody
+    - @info_changes.each do |info_change|
+      tr
+        td = info_change.user
+        td = info_change.comments
+        td = link_to 'Show', info_change
+        td = link_to 'Edit', edit_info_change_path(info_change)
+        td = link_to 'Destroy', info_change, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Info change', new_info_change_path

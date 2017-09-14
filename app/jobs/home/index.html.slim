@@ -1,0 +1,11 @@
+= render partial: "shared/navbar"
+.body
+  .title
+    h1 Welcome
+  .explanation Explanation Paragraph
+  p
+    = link_to "Want to Serve", new_server_path
+  p
+    = link_to "Need Service?", new_service_request_path
+  p 
+    = link_to "Needs Assesment?", new_needs_assessment_path

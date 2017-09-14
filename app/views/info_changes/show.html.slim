@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong User:
+  = @info_change.user
+p
+  strong Comments:
+  = @info_change.comments
+
+= link_to 'Edit', edit_info_change_path(@info_change)
+'  |
+= link_to 'Back', info_changes_path
